@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.scale7</groupId>
+  <artifactId>scale7-cages</artifactId>
+  <version>0.8-SNAPSHOT</version>
+  <versioning>
+    <release>0.8-SNAPSHOT</release>
+    <versions>
+      <version>0.8-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20110203090950</lastUpdated>
+  </versioning>
+</metadata>
