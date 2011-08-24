@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.googlecode.playn</groupId>
+    <artifactId>playn-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>playn-jbox2d</artifactId>
+  <packaging>jar</packaging>
+  <name>PlayN JBox2D</name>
+  <description>A GWT-compatible port of JBox2D, for use with PlayN games.</description>
+
+  <dependencies>
+    <!-- this is needed for src/playn/core/DebugDrawBox2D -->
+    <dependency>
+      <groupId>com.googlecode.playn</groupId>
+      <artifactId>playn-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>${gwtversion}</version>
+      <!-- we don't export a gwt-user dependency here even though the GWT portions of jbox2d
+           require it, because we want, for example, an Android project to be able to depend on
+           playn-jbox2d without inheriting a GWT dependency; the HTML portion of said project will
+           necessarily also depend on playn-html which will bring in the gwt-user dependency -->
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-dev</artifactId>
+      <version>${gwtversion}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <directory>${basedir}/src</directory>
+      </resource>
+      <resource>
+        <directory>${basedir}/gwtemul</directory>
+      </resource>
+    </resources>
+  </build>
+</project>
